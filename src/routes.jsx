@@ -1,4 +1,4 @@
-// src/routes.js
+// src/routes.jsx
 import Home from './pages/Home';
 import Directors from './pages/Directors';
 import Actors from './pages/Actors';

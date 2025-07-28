@@ -1,7 +1,8 @@
-// src/pages/Actors.js
+// src/pages/Actors.jsx
 import NavBar from '../components/NavBar';
+import { actors } from '../mockData';
 
-function Actors({ actors }) {
+function Actors() {
   return (
     <>
       <NavBar />

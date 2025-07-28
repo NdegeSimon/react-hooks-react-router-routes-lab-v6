@@ -1,4 +1,4 @@
-// src/pages/ErrorPage.js
+// src/pages/ErrorPage.jsx
 import NavBar from '../components/NavBar';
 
 function ErrorPage() {

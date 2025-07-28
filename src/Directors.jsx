@@ -1,16 +1,17 @@
-// src/pages/Actors.js
+// src/pages/Directors.jsx
 import NavBar from '../components/NavBar';
+import { directors } from '../mockData';
 
-function Actors({ actors }) {
+function Directors() {
   return (
     <>
       <NavBar />
-      <h1>Actors Page</h1>
-      {actors.map(actor => (
-        <article key={actor.id}>
-          <h2>{actor.name}</h2>
+      <h1>Directors Page</h1>
+      {directors.map(director => (
+        <article key={director.id}>
+          <h2>{director.name}</h2>
           <ul>
-            {actor.movies.map((movie, index) => (
+            {director.movies.map((movie, index) => (
               <li key={index}>{movie}</li>
             ))}
           </ul>
@@ -20,4 +21,4 @@ function Actors({ actors }) {
   );
 }
 
-export default Actors;
+export default Directors;
