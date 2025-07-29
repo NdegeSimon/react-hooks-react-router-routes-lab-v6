@@ -1,20 +1,29 @@
-// src/pages/Movie.jsx
-import { useParams } from 'react-router-dom';
-import { movies } from '../data';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
-export default function Movie() {
+function Movie() {
   const { id } = useParams();
-  const movie = movies.find(movie => movie.id === parseInt(id));
+  const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/movies/${id}`)
+      .then((r) => r.json())
+      .then(setMovie);
+  }, [id]);
+
+  if (!movie) return <p>Loading...</p>;
 
   return (
-    <>
+    <div>
+      <NavBar />
       <h1>{movie.title}</h1>
-      <p>Time: {movie.time}</p>
-      <div>
-        {movie.genres.map(genre => (
-          <span key={genre}>{genre}</span>
-        ))}
-      </div>
-    </>
+      <p>{movie.time}</p>
+      {movie.genres.map((genre, i) => (
+        <span key={i}>{genre} </span>
+      ))}
+    </div>
   );
 }
+
+export default Movie;

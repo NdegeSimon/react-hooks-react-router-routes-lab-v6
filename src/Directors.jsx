@@ -1,14 +1,24 @@
-import { directors } from '../data';
+import React, { useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
 
-export default function Directors() {
+function Directors() {
+  const [directors, setDirectors] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/directors")
+      .then((r) => r.json())
+      .then(setDirectors);
+  }, []);
+
   return (
     <div>
+      <NavBar />
       <h1>Directors Page</h1>
-      {directors.map(director => (
+      {directors.map((director) => (
         <article key={director.name}>
           <h2>{director.name}</h2>
           <ul>
-            {director.movies.map(movie => (
+            {director.movies.map((movie) => (
               <li key={movie}>{movie}</li>
             ))}
           </ul>
@@ -17,3 +27,5 @@ export default function Directors() {
     </div>
   );
 }
+
+export default Directors;

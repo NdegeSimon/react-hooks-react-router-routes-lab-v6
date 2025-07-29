@@ -1,13 +1,25 @@
-import MovieCard from '../components/MovieCard';
-import { movies } from '../data';
+import React, { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
+import NavBar from "../components/NavBar";
 
-export default function Home() {
+function Home() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/movies")
+      .then((r) => r.json())
+      .then(setMovies);
+  }, []);
+
   return (
     <div>
+      <NavBar />
       <h1>Home Page</h1>
-      {movies.map(movie => (
-        <MovieCard key={movie.id} id={movie.id} title={movie.title} />
+      {movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );
 }
+
+export default Home;
