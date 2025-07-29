@@ -1,7 +1,6 @@
-// src/pages/ErrorPage.jsx
 import NavBar from '../components/NavBar';
 
-function ErrorPage() {
+export default function ErrorPage() {
   return (
     <>
       <NavBar />
@@ -9,5 +8,3 @@ function ErrorPage() {
     </>
   );
 }
-
-export default ErrorPage;

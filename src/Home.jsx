@@ -1,18 +1,13 @@
-// src/pages/Home.jsx
 import MovieCard from '../components/MovieCard';
-import NavBar from '../components/NavBar';
-import { movies } from '../mockData';
+import { movies } from '../data';
 
-function Home() {
+export default function Home() {
   return (
-    <>
-      <NavBar />
+    <div>
       <h1>Home Page</h1>
       {movies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} id={movie.id} title={movie.title} />
       ))}
-    </>
+    </div>
   );
 }
-
-export default Home;

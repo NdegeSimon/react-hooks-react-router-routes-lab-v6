@@ -1,24 +1,19 @@
-// src/pages/Actors.jsx
-import NavBar from '../components/NavBar';
-import { actors } from '../mockData';
+import { actors } from '../data';
 
-function Actors() {
+export default function Actors() {
   return (
-    <>
-      <NavBar />
+    <div>
       <h1>Actors Page</h1>
       {actors.map(actor => (
-        <article key={actor.id}>
+        <article key={actor.name}>
           <h2>{actor.name}</h2>
           <ul>
-            {actor.movies.map((movie, index) => (
-              <li key={index}>{movie}</li>
+            {actor.movies.map(movie => (
+              <li key={movie}>{movie}</li>
             ))}
           </ul>
         </article>
       ))}
-    </>
+    </div>
   );
 }
-
-export default Actors;
