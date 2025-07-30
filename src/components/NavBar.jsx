@@ -5,7 +5,7 @@ import "./NavBar.css";
 
 function NavBar() {
   return (
-    <div className="navbar">
+    <div className="navbar" role="navigation">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/directors">Directors</NavLink>
       <NavLink to="/actors">Actors</NavLink>
